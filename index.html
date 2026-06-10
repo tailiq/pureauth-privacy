@@ -2,27 +2,118 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>PureAuth - 隐私政策 (Privacy Policy)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureAuth - Privacy Policy</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #333; }
-        h1 { border-bottom: 2px solid #4f46e5; padding-bottom: 10px; color: #4f46e5; }
+        :root {
+            --primary: #4f46e5;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 16px;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h2 span.en {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        p, ul {
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .meta-info {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+
+<div class="container">
     <h1>PureAuth 隐私政策</h1>
-    <p>更新日期：2026年6月</p>
-    <p>PureAuth（"我们"）承诺保护您的个人隐私。本应用是一款完全离线的双重身份验证（TOTP）工具。</p>
-    
-    <h2>1. 数据收集与使用</h2>
-    <p><strong>完全本地化：</strong>PureAuth 不设任何后端服务器。您的所有账户数据、密钥和配置信息均通过 <code>chrome.storage.local</code> 接口加密存储在您的本地浏览器中。我们绝不会收集、传输、共享或出售您的任何个人数据或身份验证密钥。</p>
-    
-    <h2>2. 权限使用说明</h2>
+    <div class="meta-info">更新日期 / Last Updated: 2026年6月</div>
+
+    <p>PureAuth（"我们"）深知隐私对您的重要性。本声明旨在清晰阐述本浏览器扩展程序（Extension）在保护您的个人数据方面的合规行为。本插件是一款<strong>完全离线运行</strong>的双重身份验证（TOTP）工具。</p>
+
+    <h2>1. 数据收集与传输 <span class="en">Data Collection & Transmission</span></h2>
+    <p><strong>绝对零收集（Zero Data Collection）：</strong> PureAuth 不设立任何后端服务器，亦不包含任何网络请求逻辑[cite: 3]。我们<strong>不会</strong>收集、存储、传输、共享或出售您的任何个人身份信息（PII）、浏览历史或双重认证密钥（Secret Keys）[cite: 3]。</p>
+
+    <h2>2. 权限使用及目的说明 <span class="en">Permissions & Usage</span></h2>
+    <p>为了提供核心的本地双重认证服务，本插件在 <code>manifest.json</code> 中声明了以下必要权限，其使用目的完全限定于本地业务：</p>
     <ul>
-        <li><strong>storage（存储权限）：</strong>仅用于在本地保存您的 TOTP 账户列表。</li>
-        <li><strong>clipboardWrite（剪贴板权限）：</strong>仅当您点击验证码时，用于将验证码复制到剪贴板，方便粘贴。</li>
+        <li><code>storage</code> <strong>（本地存储权限）：</strong> 仅用于在您的本地浏览器中安全持久化您的 TOTP 账号列表及密钥配置。数据绝不会离开您的设备[cite: 3]。</li>
+        <li><code>clipboardWrite</code> <strong>（剪贴板写入权限）：</strong> 仅当您在插件 UI 中主动点击验证码时触发，用于将 6 位动态验证码快捷复制到剪贴板，提升使用体验[cite: 1, 3]。</li>
     </ul>
 
-    <h2>3. 变更与联系方式</h2>
-    <p>如有任何疑问，请通过代码声明中的公开邮箱联系我们。</p>
+    <h2>3. 数据保留与擦除 <span class="en">Data Retention & Deletion</span></h2>
+    <p>您的所有账户数据完全由您自主控制。您可以在插件管理界面中随时手动删除单条记录，或者通过从浏览器中直接“卸载/移除” PureAuth 插件，来彻底且不可逆地擦除本地存储（<code>chrome.storage.local</code>）中的所有相关数据[cite: 1, 3]。</p>
+
+    <h2>4. 变更与联系方式 <span class="en">Contact Us</span></h2>
+    <p>本隐私政策可能会根据 Chrome Web Store 的最新开发者合规政策进行不定期更新。如您对本插件的隐私处理或安全性有任何疑问，请通过官方开发者邮箱与我们建立联系：</p>
+    <p><strong>Email: <code>tailiqoutlook@gmail.com</code></strong>[cite: 3]</p>
+
+    <div class="footer">
+        &copy; 2026 PureAuth. Open source and locally focused.
+    </div>
+</div>
+
 </body>
 </html>
